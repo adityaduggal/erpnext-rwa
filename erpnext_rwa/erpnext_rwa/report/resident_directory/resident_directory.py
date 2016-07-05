@@ -19,27 +19,29 @@ def get_columns():
 	]
 
 def get_data(filters):
+	conditions_add = get_conditions(filters)
 	query = """SELECT ad.block, ad.house_number, 
 	ad.floor, co.first_name, co.last_name, 
 	co.mobile_no, co.phone, co.email_id
 	FROM `tabContact` co, `tabAddress` ad
 	WHERE
 		co.show_in_directory = 1 AND
-		ad.name = co.address
+		ad.name = co.address %s
 	ORDER BY
 		CAST(ad.block AS UNSIGNED), CAST(ad.house_number AS UNSIGNED),
-		ad.floor, co.first_name"""
-
-	frappe.msgprint(query)
+		ad.floor, co.first_name""" %conditions_add
 	data = frappe.db.sql(query, as_list =1)
 	return data
 	
 def get_conditions(filters):
 	conditions_add = ""
 
-	if filters.get("from_date"):
-		conditions += " and so.transaction_date >= '%s'" % filters["from_date"]
+	if filters.get("block"):
+		conditions_add += " AND ad.block = '%s'" % filters["block"]
 
-	if filters.get("to_date"):
-		conditions += " and so.transaction_date <= '%s'" % filters["to_date"]
-	return conditions
+	if filters.get("house"):
+		conditions_add += " AND ad.house_number = '%s'" % filters["house"]
+		
+	if filters.get("floor"):
+		conditions_add += " AND ad.floor = '%s'" % filters["floor"]
+	return conditions_add
