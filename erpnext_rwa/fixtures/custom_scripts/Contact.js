@@ -18,3 +18,7 @@ frappe.ui.form.on("Contact", {
 		Address Proof of the Resident');
 	},
 });
+
+cur_frm.cscript.is_resident = function(doc, cdt, cdn) {
+	cur_frm.toggle_reqd("address", false);
+};
