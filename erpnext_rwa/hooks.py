@@ -10,6 +10,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "adityaduggal@gmail.com"
 app_license = "MIT"
+fixtures = ["Custom Field","Custom Script"]
 
 # Includes in <head>
 # ------------------
@@ -70,13 +71,15 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+ 	"Address": {
+ 		"validate": "erpnext_rwa.erpnext_rwa.validations.address.validate",
+		"autoname": "erpnext_rwa.erpnext_rwa.validations.address.autoname",
+	},
+ 	"Contact": {
+ 		"validate": "erpnext_rwa.erpnext_rwa.validations.contact.validate",
+	},
+}
 
 # Scheduled Tasks
 # ---------------
