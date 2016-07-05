@@ -1,33 +1,32 @@
-Data Import Template,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Table:,Custom Field,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Notes:,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Please do not change the template headings.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-First data column must be blank.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-"If you are uploading new records, leave the ""name"" (ID) column blank.",,,,,,,,,,,,,,,,,,,,,,,,,,,,
-"If you are uploading new records, ""Naming Series"" becomes mandatory, if present.",,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Only mandatory fields are necessary for new records. You can delete non-mandatory columns if you wish.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-"For updating, you can update only selective columns.",,,,,,,,,,,,,,,,,,,,,,,,,,,,
-You can only upload upto 5000 records in one go. (may be less in some cases),,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-DocType:,Custom Field,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Column Labels:,ID,Document,Field Type,Label,Fieldname,Insert After,Precision,Options,Collapsible,Collapsible Depends On,Default Value,Depends On,Field Description,Permission Level,Width,Is Mandatory Field,Unique,Read Only,Ignore User Permissions,Hidden,Print Hide,Print Hide If No Value,No Copy,Allow on Submit,In Report Filter,In List View,Report Hide,Ignore XSS Filter
-Column Name:,name,dt,fieldtype,label,fieldname,insert_after,precision,options,collapsible,collapsible_depends_on,default,depends_on,description,permlevel,width,reqd,unique,read_only,ignore_user_permissions,hidden,print_hide,print_hide_if_no_value,no_copy,allow_on_submit,in_filter,in_list_view,report_hide,ignore_xss_filter
-Mandatory:,Yes,Yes,Yes,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No
-Type:,Data (text),Link,Select,Data,Data,Select,Select,Text,Check,Code,Text,Code,Text,Int,Data,Check,Check,Check,Check,Check,Check,Check,Check,Check,Check,Check,Check,Check
-Info:,,Valid DocType,"One of: Attach, Attach Image, Button, Check, Code, Column Break, Currency, Data, Date, Datetime, Dynamic Link, Float, HTML, Image, Int, Link, Long Text, Password, Percent, Read Only, Section Break, Select, Small Text, Table, Text, Text Editor, Time",,,,"One of: 1, 2, 3, 4, 5, 6, 7, 8, 9",,0 or 1,,,,,Integer,,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1,0 or 1
-Start entering data below this line,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,"""Contact-address""",Contact,Link,Address,address,customer_name,,Address,0,,,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0
-,"""Contact-show_in_directory""",Contact,Check,Show In Directory,show_in_directory,is_resident,,,0,,,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0
-,"""Contact-is_resident""",Contact,Check,Is Resident,is_resident,phone,,,0,,,,,1,,0,0,0,0,0,0,0,0,0,0,0,0,0
-,"""Contact-gender""",Contact,Select,Gender,gender,cb00,,"
+"Data Import Template"
+"Table:","Custom Field"
+""
+""
+"Notes:"
+"Please do not change the template headings."
+"First data column must be blank."
+"If you are uploading new records, leave the ""name"" (ID) column blank."
+"If you are uploading new records, ""Naming Series"" becomes mandatory, if present."
+"Only mandatory fields are necessary for new records. You can delete non-mandatory columns if you wish."
+"For updating, you can update only selective columns."
+"You can only upload upto 5000 records in one go. (may be less in some cases)"
+""
+"DocType:","Custom Field","","","","","","","","","","","","","","","","","","","","","","","","","","",""
+"Column Labels:","ID","Document","Field Type","Label","Fieldname","Insert After","Precision","Options","Collapsible","Collapsible Depends On","Default Value","Depends On","Field Description","Permission Level","Width","Is Mandatory Field","Unique","Read Only","Ignore User Permissions","Hidden","Print Hide","Print Hide If No Value","No Copy","Allow on Submit","In Report Filter","In List View","Report Hide","Ignore XSS Filter"
+"Column Name:","name","dt","fieldtype","label","fieldname","insert_after","precision","options","collapsible","collapsible_depends_on","default","depends_on","description","permlevel","width","reqd","unique","read_only","ignore_user_permissions","hidden","print_hide","print_hide_if_no_value","no_copy","allow_on_submit","in_filter","in_list_view","report_hide","ignore_xss_filter"
+"Mandatory:","Yes","Yes","Yes","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No","No"
+"Type:","Data (text)","Link","Select","Data","Data","Select","Select","Text","Check","Code","Text","Code","Text","Int","Data","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check"
+"Info:","","Valid DocType","One of: Attach, Attach Image, Button, Check, Code, Column Break, Currency, Data, Date, Datetime, Dynamic Link, Float, HTML, Image, Int, Link, Long Text, Password, Percent, Read Only, Section Break, Select, Small Text, Table, Text, Text Editor, Time","","","","One of: 1, 2, 3, 4, 5, 6, 7, 8, 9","","0 or 1","","","","","Integer","","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1"
+"Start entering data below this line"
+"","""Contact-gender""","Contact","Select","Gender","gender","cb00","","
 Female
-Male",0,,,,,0,,1,0,0,0,0,0,0,0,0,0,0,0,0
-,"""Address-floor""",Address,Select,Floor,floor,house_number,,"
-GF
+Male",0,"","","","",0,"",1,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Address-block""","Address","Link","Block","block","column_break0","","Block",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Address-house_number""","Address","Link","House Number","house_number","block","","House",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Address-floor""","Address","Select","Floor","floor","house_number","","GF
 FF
 SF
-TF",0,,,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0
-,"""Address-house_number""",Address,Link,House Number,house_number,block,,House,0,,,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0
-,"""Address-block""",Address,Link,Block,block,column_break0,,Block,0,,,,,0,,0,0,0,0,0,0,0,0,0,0,0,0,0
+TF",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Contact-is_resident""","Contact","Check","Is Resident","is_resident","phone","","",0,"","","","",1,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Contact-show_in_directory""","Contact","Check","Show In Directory","show_in_directory","is_resident","","",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Contact-address""","Contact","Link","Address","address","customer_name","","Address",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
