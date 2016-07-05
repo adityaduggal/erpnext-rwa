@@ -20,7 +20,7 @@
 "Start entering data below this line"
 "","""Contact-gender""","Contact","Select","Gender","gender","cb00","","
 Female
-Male",0,"","","","",0,"",1,0,0,0,0,0,0,0,0,0,0,0,0
+Male",0,"","Male","","",0,"",1,0,0,0,0,0,0,0,0,0,0,0,0
 "","""Address-block""","Address","Link","Block","block","column_break0","","Block",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
 "","""Address-house_number""","Address","Link","House Number","house_number","block","","House",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
 "","""Address-floor""","Address","Select","Floor","floor","house_number","","GF
