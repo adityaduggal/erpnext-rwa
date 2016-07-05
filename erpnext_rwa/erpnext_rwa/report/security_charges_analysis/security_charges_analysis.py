@@ -21,7 +21,9 @@ def get_columns(filters):
 			]
 	else:
 		return[
-			"Address:Link/Address:150", "Block:Int:50", "House:Int:50", "Floor::50"
+			"Address:Link/Address:150", "Block:Int:50", "House:Int:50", "Floor::50",
+			"Contact Person:Link/Contact:150", "First Name::80",
+			"Last Name::80", "Mobile Number::150", "Email ID::200", "Phone Number::150", 
 		]
 	
 def get_data (filters):
@@ -40,9 +42,13 @@ def get_data (filters):
 			ORDER BY sec.posting_date, ad.block, ad.house_number, ad.floor""" \
 			%(conditions_add, conditions_sec)
 	else:
-		query = """SELECT ad.name, ad.block, ad.house_number, ad.floor
+		query = """SELECT ad.name, ad.block, ad.house_number, ad.floor, IFNULL(co.name, "-"), 
+			IFNULL(co.first_name, "-"), IFNULL(co.last_name, "-"),
+			IFNULL(co.mobile_no, "-"), IFNULL(co.phone, "-"), IFNULL(co.email_id, "-"),
+			IFNULL(co.name, "-")
 			
 			FROM `tabAddress` ad
+				LEFT JOIN `tabContact` co ON ad.name = co.address
 			
 			WHERE ad.address_type = 'Resident' %s AND ad.name NOT IN (
 				SELECT ad.name FROM `tabSecurity Charges` sec
