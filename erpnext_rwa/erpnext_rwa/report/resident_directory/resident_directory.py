@@ -14,22 +14,24 @@ def execute(filters=None):
 	
 def get_columns():
 	return [
-		"Block:Int:50", "House Number:Int:80", "Floor::50", "First Name::100",
-		"Last Name::100", "Mobile Number::150", "Phone Number::150", "Email ID::200"
+		"Address:Link/Address:120", "Block:Int:40", "House Number:Int:40", "Floor::40", "First Name::80",
+		"Last Name::80", "Mobile Number::150", "Phone Number::150", "Email ID::200", 
+		"Contact:Link/Contact:150"
 	]
 
 def get_data(filters):
 	conditions_add = get_conditions(filters)
-	query = """SELECT ad.block, ad.house_number, 
-	ad.floor, co.first_name, co.last_name, 
-	co.mobile_no, co.phone, co.email_id
-	FROM `tabContact` co, `tabAddress` ad
+	query = """SELECT ad.name, ad.block, ad.house_number, 
+	ad.floor, IFNULL(co.first_name, "-"), IFNULL(co.last_name, "-"),
+	IFNULL(co.mobile_no, "-"), IFNULL(co.phone, "-"), IFNULL(co.email_id, "-"),
+	IFNULL(co.name, "-")
+	FROM `tabAddress` ad
+		LEFT JOIN `tabContact` co ON ad.name = co.address AND co.show_in_directory = 1
 	WHERE
-		co.show_in_directory = 1 AND
-		ad.name = co.address %s
+		ad.address_type = 'Resident' %s
 	ORDER BY
 		CAST(ad.block AS UNSIGNED), CAST(ad.house_number AS UNSIGNED),
-		ad.floor, co.first_name""" %conditions_add
+		ad.floor""" % conditions_add
 	data = frappe.db.sql(query, as_list =1)
 	return data
 	

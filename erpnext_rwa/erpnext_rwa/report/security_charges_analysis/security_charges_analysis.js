@@ -15,7 +15,7 @@ frappe.query_reports["Security Charges Analysis"] = {
 			"label": "Security Upto Date",
 			"fieldtype": "Date",
 			"default": frappe.datetime.get_today(),
-			"reqd": 1
+			"reqd": 0
 		},
 		{
 			"fieldname":"block",
