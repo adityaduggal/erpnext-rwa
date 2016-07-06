@@ -30,6 +30,8 @@ def check_floor(doc, method):
 		if same_address:
 			if doc.floor == "TF":
 				if any("SF" not in s for s in same_address):
+					pass
+				else:
 					frappe.throw(("Third Floor (TF) not possible since there is no Second Floor (SF) \
 						for House No: {0}.\n \
 						If you want to Create a Third Floor (TF) Address First Create \
