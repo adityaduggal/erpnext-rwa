@@ -80,5 +80,8 @@ def get_conditions(filters):
 		
 	if filters.get("house"):
 		conditions_add += " AND ad.house_number = '%s'" % filters["house"]
+	
+	if filters.get("placement"):
+		conditions_add += " AND ad.colony_placement = '%s'" % filters["placement"]
 		
 	return conditions_add, conditions_sec

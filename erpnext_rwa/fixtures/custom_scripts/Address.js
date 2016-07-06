@@ -1,7 +1,7 @@
 var general_fields = ["address_line1", "address_line2", "city", "state", 
 	"pincode", "country"];
 	
-var specific_fields = ["block", "house_number", "floor"];
+var specific_fields = ["block", "house_number", "floor", "colony_placement"];
 var others = ["address_title"]
 var add_type = ["address_type"]
 var extra = ["email_id", "phone", "fax", "linked_with", "is_primary_address", "is_shipping_address", "county", "test"]

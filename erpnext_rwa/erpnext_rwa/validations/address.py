@@ -5,7 +5,13 @@ from frappe import msgprint
 
 def validate(doc,method):
 	check_floor(doc,method)
+	check_colony_placement(doc,method)
+	
 	#Change block as per the House Number
+	user = frappe.session.user
+	query = """SELECT role from `tabUserRole` where parent = '%s' """ %user
+	roles = frappe.db.sql(query, as_list=1)
+	
 	if doc.address_type == "Resident":		
 		doc.address_line1 = "Block# " + doc.block + ", House# " + \
 			doc.house_number + ", Floor: " + doc.floor
@@ -16,11 +22,39 @@ def validate(doc,method):
 		doc.postal_code = frappe.db.get_value("Block", doc.block, "postal_code")
 
 
-	if doc.address_type == "Resident" and doc.name <> doc.address_line1 and not doc.get("__islocal"):
-		frappe.throw("Residential Address not Allowed to be Changed")
-	#elif doc.name[:7] <> "Outside":
-		#frappe.throw("Outside Address cannot be changed to Residential Address")
+	if doc.address_type == "Resident" and doc.name <> doc.address_line1 \
+		and not doc.get("__islocal"):
+		if any("System Manager" in s  for s in roles):
+			pass
+		else:
+			frappe.throw("Residential Address can only be Changed by System Manager")
 
+def check_colony_placement(doc,method):
+	user = frappe.session.user
+	query = """SELECT role from `tabUserRole` where parent = '%s' """ %user
+	roles = frappe.db.sql(query, as_list=1)
+	
+	if doc.address_type == "Resident":
+		query = """SELECT colony_placement FROM `tabAddress`
+			WHERE block = %s AND house_number = %s AND name <> '%s'""" %\
+			(doc.block, doc.house_number, doc.name)
+		same_address = frappe.db.sql(query, as_list=1)
+		#frappe.throw(same_address)
+		if same_address:
+			if any(doc.colony_placement in s for s in same_address):
+				pass
+			else:
+				if any("System Manager" in s  for s in roles):
+					#If system admin changes the Colony Placement all houses are changed
+					addresses = frappe.db.sql("""SELECT name FROM `tabAddress` WHERE block = %s 
+						AND house_number = %s AND name <> '%s'""" % \
+						(doc.block, doc.house_number, doc.name), as_list = 1)
+					for i in addresses:
+						frappe.db.set_value("Address", i[0], "colony_placement", doc.colony_placement)
+				else:
+					frappe.throw(("House Number: {0} cannot be {1} as already it has been \
+						assigned other placement").format(doc.house_number, doc.colony_placement))
+		
 def check_floor(doc, method):
 	#Checks FF can only be after GF, SF can only be after FF and TF can only be after SF
 	if doc.address_type == "Resident":
@@ -29,7 +63,7 @@ def check_floor(doc, method):
 		same_address = frappe.db.sql(query, as_list=1)
 		if same_address:
 			if doc.floor == "TF":
-				if any("SF" not in s for s in same_address):
+				if any("SF" in s for s in same_address):
 					pass
 				else:
 					frappe.throw(("Third Floor (TF) not possible since there is no Second Floor (SF) \

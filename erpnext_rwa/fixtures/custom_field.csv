@@ -18,15 +18,16 @@
 "Type:","Data (text)","Link","Select","Data","Data","Select","Select","Text","Check","Code","Text","Code","Text","Int","Data","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check","Check"
 "Info:","","Valid DocType","One of: Attach, Attach Image, Button, Check, Code, Column Break, Currency, Data, Date, Datetime, Dynamic Link, Float, HTML, Image, Int, Link, Long Text, Password, Percent, Read Only, Section Break, Select, Small Text, Table, Text, Text Editor, Time","","","","One of: 1, 2, 3, 4, 5, 6, 7, 8, 9","","0 or 1","","","","","Integer","","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1","0 or 1"
 "Start entering data below this line"
-"","""Contact-gender""","Contact","Select","Gender","gender","cb00","","
-Female
-Male",0,"","Male","","",0,"",1,0,0,0,0,0,0,0,0,0,0,0,0
-"","""Address-block""","Address","Link","Block","block","column_break0","","Block",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
-"","""Address-house_number""","Address","Link","House Number","house_number","block","","House",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Address-colony_placement""","Address","Select","Colony Placement","colony_placement","floor","","Inside
+Outside",0,"","Inside","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
 "","""Address-floor""","Address","Select","Floor","floor","house_number","","GF
 FF
 SF
 TF",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
-"","""Contact-is_resident""","Contact","Check","Is Resident","is_resident","phone","","",0,"","","","",1,"",0,0,0,0,0,0,0,0,0,0,0,0,0
-"","""Contact-show_in_directory""","Contact","Check","Show In Directory","show_in_directory","is_resident","","",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Address-house_number""","Address","Link","House Number","house_number","block","","House",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Address-block""","Address","Link","Block","block","column_break0","","Block",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
 "","""Contact-address""","Contact","Link","Address","address","customer_name","","Address",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Contact-show_in_directory""","Contact","Check","Show In Directory","show_in_directory","is_resident","","",0,"","","","",0,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Contact-is_resident""","Contact","Check","Is Resident","is_resident","phone","","",0,"","","","",1,"",0,0,0,0,0,0,0,0,0,0,0,0,0
+"","""Contact-gender""","Contact","Select","Gender","gender","cb00","","Female
+Male",0,"","Male","","",0,"",1,0,0,0,0,0,0,0,0,0,0,0,0

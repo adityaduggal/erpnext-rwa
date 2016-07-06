@@ -30,6 +30,12 @@ frappe.query_reports["Security Charges Analysis"] = {
 			"option": "House"
 		},
 		{
+			"fieldname":"placement",
+			"label": "House Placement",
+			"fieldtype": "Select",
+			"options": "\nInside\nOutside"
+		},
+		{
 			"fieldname":"payment_receipt_date",
 			"label": "Payment Receipt Date",
 			"fieldtype": "Date"
